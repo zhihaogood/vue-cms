@@ -33,3 +33,5 @@ npm run build --report
 
 
 ##第7步  设置时间 下载moment包并引入定义全局过滤器
+
+##第八步 设置路由将ID传过去通过对应的ID找到新闻详情页面然后获取数据渲染页面 id:this.$route.params.id,
