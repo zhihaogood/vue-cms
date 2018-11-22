@@ -7,17 +7,19 @@
     </div>
     <hr>
     <div class="content" v-html="newsInfo.content"></div>
+    <comment :id="id"></comment>
   </div>
 </template>
 
 <script>
-import { Toast } from 'mint-ui'
+import { Toast } from 'mint-ui';
+import comment from "../../components/comment/";
 export default {
     data(){
         return{
             id:this.$route.params.id,
             newsInfo:{}
-        }
+        };
     },
     created(){
         this.getNewsInfo()
@@ -25,16 +27,19 @@ export default {
     methods:{
         getNewsInfo(){
             this.$http.get('api/getnew/'+this.id).then(result=>{
-                console.log(result)
+                // console.log(result)
                 if(result.body.status===0){
                     this.newsInfo=result.body.message[0];
                 }else{
                     Toast('新闻详情获取失败')
                 }
-            })
+            });
         }
+    },
+    components :{
+        comment
     }
-}
+};
 </script>
 
 <style lang="less">
