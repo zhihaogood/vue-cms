@@ -8,11 +8,11 @@
       <div class="comment-item" v-for="(item, index) in commentList" :key="index">
         <div class="comment-title">第{{index + 1}}楼&nbsp;&nbsp;用户:{{item.user_name}}&nbsp;&nbsp;发表时间:{{item.add_time | dateFormat}}</div>
         <div class="comment-content">
-          {{item.content || '此人有点懒'}}
+          {{item.content ==='undefined' ?  '此人很懒不想说话': item.content}}
         </div>
       </div>
     </div>
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
+    <mt-button @click="loadMore" type="danger" size="large" plain>加载更多</mt-button>
   </div>
 </template>
 
@@ -31,8 +31,13 @@ export default {
     methods:{
         getComments(){
             this.$http.get("api/getcomments/" +this.id+"?pageindex="+this.pageIndex).then(result =>{
-                this.commentList=result.body.message;
+                //当获取新评论数据的时候不要把老数据清空覆盖而是应该将取老数据拼接上新数据
+                this.commentList=this.commentList.concat(result.body.message)
             });
+        },
+        loadMore(){
+            this.pageIndex++;
+            this.getComments();
         }
     }
 };
@@ -40,6 +45,7 @@ export default {
 
 <style lang="less">
     .comment-container{
+        padding-bottom: 60px;
         .comment-list{
             .comment-item{
                 margin:5px 0;
