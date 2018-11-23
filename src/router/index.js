@@ -7,6 +7,7 @@ import ShopcarComponent from '../pages/shopcar/'
 import SearchComponent from '../pages/search/'
 import newsListComponent  from '../pages/newsList/'
 import newsInfoComponent  from '../pages/newsInfo/'
+import photosComponent  from '../components/photos/'
 
 Vue.use(Router)
 
@@ -18,7 +19,8 @@ export default new Router({
         { path: '/shopcar',component:ShopcarComponent},
         { path: '/search',component:SearchComponent},
         { path: '/home/newsList',component:newsListComponent},
-        { path: '/home/newsInfo/:id',component:newsInfoComponent}
+        { path: '/home/newsInfo/:id',component:newsInfoComponent},
+        { path: '/home/photos/',component:photosComponent}
     ],
     linkActiveClass:'mui-active'
 })
