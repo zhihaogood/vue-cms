@@ -31,6 +31,9 @@ import './lib/mui/css/icons-extra.css'
 //引入自己的全局样式
 import './css/common.less'
 
+//设置全局post时候表单数据格式组织形式
+Vue.http.options.emulateJSON=true;
+
 //定义全局过滤器
 Vue.filter('dateFormat',function(dateStr,pattern='YYY-MM-DD HH:mm:ss'){
   //直接调用表示获取当前时间
