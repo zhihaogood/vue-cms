@@ -13,16 +13,18 @@ Vue.http.options.root="http://www.lovegf.cn:8899/"
 
 Vue.config.productionTip = false
 
+
 //按需导入需要的mint-ui组件
-import { Header, Swipe,SwipeItem,Button} from 'mint-ui'
-//注册组件
-Vue.component(Header.name,Header)
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
-
-
-
+// import { Header, Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
+// //注册组件
+// Vue.component(Header.name,Header)
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload);
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
 //导入mui样式
 import './lib/mui/css/mui.css'
