@@ -8,6 +8,8 @@ import SearchComponent from '../pages/search/'
 import newsListComponent  from '../pages/newsList/'
 import newsInfoComponent  from '../pages/newsInfo/'
 import photosComponent  from '../components/photos/'
+import photoinfoComponent  from '../components/photoinfo/'
+import goodslistComponent  from '../pages/goods/'
 
 Vue.use(Router)
 
@@ -20,7 +22,9 @@ export default new Router({
         { path: '/search',component:SearchComponent},
         { path: '/home/newsList',component:newsListComponent},
         { path: '/home/newsInfo/:id',component:newsInfoComponent},
-        { path: '/home/photos/',component:photosComponent}
+        { path: '/home/photos/',component:photosComponent},
+        { path: '/home/photoinfo/:id',component:photoinfoComponent},
+        { path: '/home/goods/',component:goodslistComponent}
     ],
     linkActiveClass:'mui-active'
 })
