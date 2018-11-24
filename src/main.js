@@ -25,6 +25,9 @@ Vue.config.productionTip = false
 import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
+//安装图片预览插件
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 //导入mui样式
 import './lib/mui/css/mui.css'
