@@ -1,6 +1,23 @@
 <template>
     <div class="goods-list-container">
-        <div class="goods-item" v-for="item in goodslist" :key="item.id">
+        <!-- <router-link class="goods-item" v-for="item in goodslist" :key="item.id" :to="'/home/goodsInfo/'+item.id">
+            <img src="https://img10.360buyimg.com/n7/jfs/t24934/126/1102620868/432389/ea09eed9/5b8a5c38N64121d0b.png" alt="">
+            <h1 class="title">{{item.title}}</h1>
+            <div class="info">
+                <p class="price">
+                    <span class="now">￥{{item.sell_price}}</span>
+                    <span class="old">￥{{item.market_price}}</span>
+                </p>
+                <p class="sell">
+                    <span>热卖中</span>
+                    <span>剩{{item.stock_quantity}}件</span>
+                </p>
+            </div>
+        </router-link> -->
+
+
+
+            <div class="goods-item" v-for="item in goodslist" :key="item.id" @click="goDetail(item.id)">
             <img src="https://img10.360buyimg.com/n7/jfs/t24934/126/1102620868/432389/ea09eed9/5b8a5c38N64121d0b.png" alt="">
             <h1 class="title">{{item.title}}</h1>
             <div class="info">
@@ -42,6 +59,19 @@ export default {
         gitMore(){
         this.pageindex++
         this.getgoodslist();
+        },
+        goDetail(id){
+            //使用JS的形式进行路由导航
+            //其中this.$route是路由参数对象所有路由中的参数
+            // this.$router是一个路由导航对象
+            // console.log(this);
+            // 1.最简单的
+            // this.$router.push("/home/goodsInfo/" +id);
+            // 2.传递对象
+            // this.$router.push({path:"/home/goodsInfo/" +id})
+            // 3.传递一个命名的路由
+            this.$router.push({ name:"goodsinfo",params:{id}})
+
         }
     }   
     

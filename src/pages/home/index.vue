@@ -2,15 +2,17 @@
   <div class="home-container">
     <!-- 轮播图 -->
 
-    <mt-swipe class="binner-container" :auto="4000">
+    <!-- <mt-swipe class="binner-container" :auto="4000">
       <mt-swipe-item v-for="(item,index) in bannerList" :key="index">
         <a :href="item.url">
           <img src="item.img" >
         </a>
-        
         </mt-swipe-item>
+    </mt-swipe> -->
+    <swipe :bannerList="bannerList" :isfull="true"></swipe>
 
-    </mt-swipe>
+
+
   <!-- 网格导航 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -39,7 +41,7 @@
 
 <script>
 import { Toast} from "mint-ui";
-
+import swipe from '../../components/swiper/index'
   export default{
     data(){
       return{
@@ -60,35 +62,38 @@ import { Toast} from "mint-ui";
     }
 });
       }
+    },
+    components:{
+      swipe
     }
   };
 </script>
 
 <style lang="less">
   .home-container{
-    .binner-container{
-      height: 200px;
+    // .binner-container{
+    //   height: 200px;
 
-      .mint-swipe-item{
-        &:nth-child(1){
-          background-color: cyan;
-        }
-        &:nth-child(2){
-          background-color: blue;
-        }
-        &:nth-child(3){
-          background-color: yellow;
-        }
-        a{
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-        img{
-          width: 100%;
-        }
-      }
-    }
+    //   .mint-swipe-item{
+    //     &:nth-child(1){
+    //       background-color: cyan;
+    //     }
+    //     &:nth-child(2){
+    //       background-color: blue;
+    //     }
+    //     &:nth-child(3){
+    //       background-color: yellow;
+    //     }
+    //     a{
+    //       display: block;
+    //       width: 100%;
+    //       height: 100%;
+    //     }
+    //     img{
+    //       width: 100%;
+    //     }
+    //   }
+    // }
     //九宫格样式
     .mui-grid-view{
       background-color: #fff;
